@@ -1,0 +1,23 @@
+{
+  "name": "webapplicationdevelopement-20ktpm4-hpql-lab-handlebars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tuanlam1610/WebApplicationDevelopement-20KTPM4-HPQL-Lab-Handlebars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tuanlam1610/WebApplicationDevelopement-20KTPM4-HPQL-Lab-Handlebars/issues"
+  },
+  "homepage": "https://github.com/tuanlam1610/WebApplicationDevelopement-20KTPM4-HPQL-Lab-Handlebars#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6"
+  }
+}
