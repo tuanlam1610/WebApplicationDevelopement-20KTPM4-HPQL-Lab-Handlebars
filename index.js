@@ -22,10 +22,34 @@ app.get('/', (req, res) =>{
 }) 
 
 app.get('/task1', (req, res) =>{
+    let { emotions} = require('./models/data');
+    
+   
+    let title =  req.query.title; //return item where item title == title
+   //console.log(title);
+    let selectedEquotions = emotions.filter(item => item.title == title);
+    let quotePath = selectedEquotions.length ? selectedEquotions[0].quotePath : 'images/task1/default.jpg'; 
+    
     //res.sendFile(__dirname + '/Handlebars-StaticFiles/index.html');
+    //res.locals.title = 'Inspiring Quotes';
+    res.locals.emotions = emotions;
+    res.locals.quotePath = quotePath;
     res.locals.footer = 'Copyright &copy; 2022 by 20127040 - Truong Gia Huy';
     res.render('task1', {title:'Inspiring Quotes'}/*, {footer:' }*/);
 })
+
+
+/*app.get('/task1/:title', (req, res) => {
+    let { emotions} = require('./models/data');
+    
+   
+    let title =  req.params.title; //return item where item title == title
+   //console.log(title);
+    let selectedEquotions = emotions.filter(item => item.title == title);
+    let quotePath = selectedEquotions.length ? selectedEquotions[0].quotePath : 'images/task1/default.jpg'; 
+    res.render('task1a', {title, emotions, quotePath});
+})*/
+
 
 app.get('/task2', (req, res) =>{
     res.locals.footer = 'Copyright &copy; 2022 by 20127297 - Nguyen Ngoc Quang';
@@ -46,7 +70,7 @@ app.get('/task4-details', (req, res) =>{
     res.render('task4-details');
 })
 
-
+  
 
 
 app.set('port', process.env.PORT || 3000);
