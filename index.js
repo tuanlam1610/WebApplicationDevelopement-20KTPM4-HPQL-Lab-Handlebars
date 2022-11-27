@@ -58,9 +58,6 @@ app.get('/task4-details', (req, res) =>{
     res.render('task4-details');
 }) 
 
-app.use('/task4', require('./routes/task4Route'))
-
-
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), () =>{
     console.log(`Server is running on port ${app.get('port')}`);
