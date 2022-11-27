@@ -21,22 +21,7 @@ app.get('/', (req, res) =>{
     res.render('index', {title:'Jeopardize Contest'});
 }) 
 
-app.get('/task1', (req, res) =>{
-    let { emotions} = require('./models/data');
-    
-   
-    let title =  req.query.title; //return item where item title == title
-   //console.log(title);
-    let selectedEquotions = emotions.filter(item => item.title == title);
-    let quotePath = selectedEquotions.length ? selectedEquotions[0].quotePath : 'images/task1/default.jpg'; 
-    
-    //res.sendFile(__dirname + '/Handlebars-StaticFiles/index.html');
-    //res.locals.title = 'Inspiring Quotes';
-    res.locals.emotions = emotions;
-    res.locals.quotePath = quotePath;
-    res.locals.footer = 'Copyright &copy; 2022 by 20127040 - Truong Gia Huy';
-    res.render('task1', {title:'Inspiring Quotes'}/*, {footer:' }*/);
-})
+app.use('/task1', require('./routes/task1Route'));
 
 
 /*app.get('/task1/:title', (req, res) => {
@@ -51,20 +36,23 @@ app.get('/task1', (req, res) =>{
 })*/
 
 
-app.get('/task2', (req, res) =>{
+/*app.get('/task2', (req, res) =>{
     res.locals.footer = 'Copyright &copy; 2022 by 20127297 - Nguyen Ngoc Quang';
-    res.render('task2', {title:'Jars Saving'}/*, {footer: }*/);
-})
+    res.render('task2', {title:'Jars Saving'}/*
 
 app.get('/task3', (req, res) =>{
     res.locals.footer = 'Copyright &copy; 2022 by 20127677 - Ha Tuan Lam';
-    res.render('task3', {title:'TV Sales'}/*, {footer: }*/);
-})
+    res.render('task3', {title:'TV Sales'}/*;
+})*/
+app.use('/task2', require('./routes/task2Route'));
 
-app.get('/task4', (req, res) =>{
+app.use('/task3', require('./routes/task3Route'));
+
+app.use('/task4', require('./routes/task4Route'));
+/*app.get('/task4', (req, res) =>{
     res.locals.footer = 'Copyright &copy; 2022 by 20127594 - Nguyen Thien Phu';
-    res.render('task4', {title:'Zodiac Characteristics'}, /*{footer: }*/);
-})
+    res.render('task4', {title:'Zodiac Characteristics'}, );
+})*/
 
 app.get('/task4-details', (req, res) =>{
     res.render('task4-details');
