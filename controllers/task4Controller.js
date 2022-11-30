@@ -3,6 +3,7 @@ const { zodiacs } = require('../models/data')
 const title = 'Zodiac Characteristics'
 
 controller.showList = (req, res) => {
+    res.locals.footer = 'Copyright &copy; 2022 by 20127594 - Nguyen Thien Phu'
     res.render('task4', {title, zodiacs})
 }
 
